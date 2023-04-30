@@ -101,9 +101,16 @@ app.post("/medicine", authenticateToken, async (req, res) => {
   });
 });
 
-app.get("/medicines", authenticateToken, async (req, res) => {
-  const { username } = req.body;
+app.get("/medicines/:username", authenticateToken, async (req, res) => {
+  const { username } = req.params;
   const sql = `select * from medicine where username = '${username}';`;
+  const sqlResponse = await database.all(sql);
+  res.send(sqlResponse);
+});
+
+app.get("/today_medicines/:username", authenticateToken, async (req, res) => {
+  const { username } = req.params;
+  const sql = `select * from today_medicine where username = '${username}';`;
   const sqlResponse = await database.all(sql);
   res.send(sqlResponse);
 });
@@ -141,4 +148,20 @@ app.delete("/medicine/:id", authenticateToken, async (req, res) => {
   const { id } = req.params;
   const sql = `DELETE FROM medicine WHERE id = ${id}`;
   await database.run(sql);
+});
+
+app.post("/today_medicine", authenticateToken, async (req, res) => {
+  const { name, dosage, username } = req.body;
+  const sql = `
+    INSERT INTO today_medicine (name, dosage, username)
+    VALUES (?, ?, ?)
+  `;
+  database.run(sql, [name, dosage, username], (err) => {
+    if (err) {
+      console.error(err.message);
+      res.sendStatus(500);
+    } else {
+      res.sendStatus(201);
+    }
+  });
 });
