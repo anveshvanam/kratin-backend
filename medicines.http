@@ -42,3 +42,9 @@ Content-Type: application/json
 GET http://localhost:3000/medicines/anvesh
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFudmVzaCIsImlhdCI6MTY4MjcxNTgwMn0.s3uP3rF4iYZuFdrTfrpsGunmK4MoXz_kiVUS7CJ71r4
 Content-Type: application/json
+####
+
+
+DELETE http://localhost:3000/medicine/1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFudmVzaCIsImlhdCI6MTY4MjcxNTgwMn0.s3uP3rF4iYZuFdrTfrpsGunmK4MoXz_kiVUS7CJ71r4
+Content-Type: application/json
