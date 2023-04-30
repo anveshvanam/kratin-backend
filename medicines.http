@@ -1,0 +1,33 @@
+POST http://localhost:3000/medicine
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFudmVzaCIsImlhdCI6MTY4MjcxNTgwMn0.s3uP3rF4iYZuFdrTfrpsGunmK4MoXz_kiVUS7CJ71r4
+Content-Type: application/json
+
+{
+  "name": "Medicine test",
+  "dosage": 123,
+  "username" : "anvesh12"
+}
+####
+
+POST http://localhost:3000/login
+Content-Type: application/json
+
+{
+  "username" : "anvesh",
+  "password" : "anvesh123"
+}
+
+###
+
+GET http://localhost:3000/medicines
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFudmVzaCIsImlhdCI6MTY4MjcxNTgwMn0.s3uP3rF4iYZuFdrTfrpsGunmK4MoXz_kiVUS7CJ71r4
+Content-Type: application/json
+
+{
+  "username" : "anvesh"
+}
+
+DELETE http://localhost:3000/medicine/:id
+{
+  
+}
